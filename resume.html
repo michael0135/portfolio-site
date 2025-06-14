@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="websiteicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michael Frueh – Resume</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      padding: 30px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      max-width: 1000px;
+      margin: auto;
+      gap: 40px;
+    }
+
+    .sidebar {
+      width: 30%;
+      background-color: #1c1c1c;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .sidebar img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar p {
+      margin-bottom: 8px;
+      color: #bbb;
+    }
+
+    .content {
+      width: 70%;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      color: #f5f5f5;
+      font-size: 24px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
+
+    .job-title {
+      font-weight: bold;
+      color: #00bfff;
+    }
+
+    .subtext {
+      font-style: italic;
+      color: #aaa;
+    }
+
+    .entry {
+      margin-bottom: 20px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #00bfff;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .download-btn:hover {
+      background-color: #009acd;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #1c1c1c;
+      padding: 10px 0;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .navbar li {
+      display: inline;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resume.html">Resume</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+
+    <!-- Sidebar with photo and contact -->
+    <aside class="sidebar">
+      <img src="IMG_7951.jpg" alt="Michael Frueh Headshot" />
+      <h1>Michael Frueh Jr.</h1>
+      <p>College Student | Future AI Engineer</p>
+      <p>📍 Lima, OH</p>
+      <p>📧michaelfrueh5589@gmail.com</p>
+      <p>📞 Email First</p>
+      <a href="Michael Frueh Resume.pdf" class="download-btn" download>Download Resume</a>
+    </aside>
+
+    <!-- Main Resume Content -->
+    <main class="content">
+      <section>
+        <h2>About Me</h2>
+        <p>I am a dedicated and energetic individual with a passion for learning and personal growth. I thrive in team environments and am committed to delivering high-quality work.</p>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="entry">
+          <p><span class="job-title">The Ohio State University</span> – B.S. in Computer Science and Engineering</p>
+          <p class="subtext">2024 – 2028 (Expected)</p>
+        </div>
+        <div class="entry">
+          <p><span class="job-title">Lima Central Catholic High School</span> – High School Diploma</p>
+          <p class="subtext">2020 – 2024</p>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="entry">
+          <p class="job-title">Menards – Cashier / Service Desk</p>
+          <p class="subtext">2024 – Present</p>
+          <ul>
+            <li>Processed transactions efficiently and handled customer concerns</li>
+            <li>Managed service desk operations and courtesy patrol responsibilities</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <p class="job-title">Cook – Lock 16 Steakhouse</p>
+          <p class="subtext">2022 – August 2024</p>
+          <ul>
+            <li>Prepared meals and followed food safety procedures</li>
+            <li>Managed cooking equipment and kitchen cleanliness</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <p class="job-title">Brand Ambassador – American Eagle</p>
+          <p class="subtext">2023 – Present (Seasonal)</p>
+          <ul>
+            <li>Welcomed customers and managed dressing rooms</li>
+            <li>Maintained product displays and brand image</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>Proficient in Python</li>
+          <li>Learning – HTML, CSS, Javascript</li>
+          <li>Commonly uses – Git, GitHub, Visual Studio Code</li>
+          <li>Organization, Communication, Time Management</li>
+        </ul>
+      </section>
+
+      <section id="leadership">
+        <h2>Leadership & Awards</h2>
+        <ul>
+          <li><strong>American Eagle Steven A. Davis Scholar</strong> – $40,000 national scholarship</li>
+          <li>120+ Volunteer Hours – St. Rose Church, Lima, OH</li>
+        </ul>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>
