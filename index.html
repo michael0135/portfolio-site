@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
 <head>
-<link rel="icon" type="image/png" href="websiteicon.png">
-<meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Michael Frueh's Personal Website</title>
+  <link rel="icon" type="image/png" href="websiteicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-nav {
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f0f0f;
+      color: #f1f1f1;
+      line-height: 1.6;
+    }
+
+    nav {
       position: sticky;
       top: 0;
       background-color: #1c1c1c;
@@ -20,15 +32,9 @@ nav {
 
     .navbar {
       list-style: none;
-      margin: 0;
-      padding: 0;
       display: flex;
       justify-content: center;
       gap: 30px;
-    }
-
-    .navbar li {
-      display: inline;
     }
 
     .navbar a {
@@ -41,102 +47,152 @@ nav {
     }
 
     .navbar a:hover {
-      background-color: #333;
+      background-color: #444;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-    }
     header {
-      background-color: #333;
+      background: linear-gradient(120deg, #1c1c1c, #333);
       color: #fff;
-      padding: 1rem;
       text-align: center;
+      padding: 2rem 1rem;
     }
+
+    header h1 {
+      font-size: 2.0rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px #00f5ff;
+    }
+
     section {
+      background: #1f1f1f;
+      max-width: 850px;
+      margin: 1.5rem auto;
       padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      margin-top: 1rem;
-      border-radius: 10px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     }
+
+    section h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #00f5ff;
+      border-bottom: 2px solid #00f5ff;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #333;
+      background-color: #1c1c1c;
       color: white;
-      margin-top: 2rem;
+      padding: 1rem;
+    }
+
+    .headshot {
+      width: 200px;
+      border-radius: 100px;
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .project-highlight {
+      background: #121212;
+      padding: 1rem;
+      border-left: 5px solid #00f5ff;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+
+    .bio-paragraph {
+      overflow: hidden;
     }
   </style>
 </head>
 <body>
+  <div>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+    </nav>
 
-<nav>
-<ul class="navbar">
-  <li><a href="index.html">Home</a></li>
-  <li class="dropdown">
-    <a href="resume.html">Resume</a>
-    </ul>
-  </li>
-</ul>
-</nav>
-    
-  
+    <header>
+      <h1>Michael Frueh Jr. – Computer Science & Engineering Student</h1>
+      <p>Student | CSE Major | Future AI Engineer</p>
+      <blockquote style="font-style: italic; color: #ccc; margin-top: 10px;">
+        "Quiet work. Real results. That’s the goal."
+      </blockquote>
+    </header>
 
-  <header>
-    <h1>Hello! Welcome to MeetMichael.dev</h1>
-    <p>Student | CSE Major | Future AI Engineer</p>
-    <blockquote style="font-style: italic; color: #ccc; margin-top: 10px;">
-      "My code isn’t perfect. But it’s mine — and it gets better every time I sit down."
-    </blockquote>
-  </header>
+    <section>
+      <h2>Get to Know Me</h2>
+      <img src="IMG_7908.jpg" alt="Michael Frueh Headshot" class="headshot">
+      <div class="bio-paragraph">
+        <p>Hey, I’m Michael Frueh Jr., a Computer Science & Engineering student at The Ohio State University with a mind and heart set on making an impact. I’m passionate about solving real problems, learning through challenges, and pushing myself to grow in life, and in the world around me. Long term, I’m working toward becoming an AI Engineer with a focus on visual applications and tech that solves human-centered problems. I want to be a builder, a leader, and someone who doesn't just chase opportunity, but creates it.</p>
+      </div>
+      <div style="clear: both;"></div>
+    </section>
 
-  <section>
-    <h2>Get to Know Me</h2>
-    <img src="IMG_7908.jpg" alt="Michael Frueh Headshot" width="200" style="border-radius: 100px; float: left; margin-right: 20px;">
-    <p>Hey, I’m Michael Frueh Jr., a Computer Science & Engineering student at The Ohio State University with a mind wired for logic and a heart set on making an impact. I’m passionate about solving real problems, learning through challenges, and pushing myself to grow — in code, in life, and in the world around me.</p>
-    <p>Long term, I’m working toward becoming an AI Engineer with a focus on visual applications and tech that solves human-centered problems. I want to be a builder, a leader, and someone who doesn't just chase opportunity—but creates it.</p>
-    <div style="clear: both;"></div>
-  </section>
+    <section>
+      <h2>Projects</h2>
+      <div class="project-highlight">
+        <strong>MeetMichael.dev</strong> – Personal website designed and built from scratch using HTML, CSS.
+      </div>
+      <div class="project-highlight">
+        <strong>AI Study Helper</strong> – Smart assistant using OpenAI API to support students with class help, Q&A, and learning tools.
+      </div>
+      <div class="project-highlight">
+        <strong>Expense Visualizer App</strong> – In development. Will allow users to track and visualize budgets and expenses dynamically.
+      </div>
+    </section>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <!-- <li><strong>Project Name</strong> – Project Description</li> -->
-      <li><strong>MeetMichael.dev</strong> – Personal Website Designed and Created by me.</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Achievements</h2>
+      <ul>
+        <li><strong>American Eagle Steven A. Davis Scholar</strong> – Awarded $40,000 scholarship out of 200+ applicants.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Achievements</h2>
-    <ul>
-      <li><strong>American Eagle Steven A. Davis Scholar</strong> – Awarded $40,000 scholarship out of 200+ applicants.</li>
-      <!-- <li><strong>Award</strong> – about award</li> -->
-    </ul>
-  </section>
+    <section>
+      <h2>Currently Learning</h2>
+      <ul>
+        <li><strong>HTML + CSS</strong> – Building this website and mastering layout/design</li>
+        <li><strong>C++</strong> – Developing a stronger understanding of C++ fundamentals</li>
+        <li><strong>JavaScript</strong> – Building dynamic web apps using API integrations</li>
+        <li><strong>React</strong> – Getting started with modern component-based frontends</li>
+      </ul>
+    </section>
 
-  <section>
-  <h2>Currently Learning</h2>
+    <section>
+  <h2>Goals</h2>
   <ul>
-    <li><strong>HTML + CSS</strong> – Building this website and mastering layout/design</li>
-    <li><strong>CS50x</strong> – Developing a stronger understanding of computer science fundamentals</li>
+    <li>🔧 Build and deploy 3 full-stack projects by the end of 2026</li>
+    <li>🌐 Land a summer internship in software or AI</li>
+    <li>📚 Finish a C++ and a React course before Fall semester</li>
+    <li>💼 Strengthen my resume to reflects growth and real skills</li>
   </ul>
-</section>
+    </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:michaelfrueh5589@gamil.com">michaelfrueh5589@gmail.com</a></p>
-    <p>School Email: <a href="mailto:frueh.42@buckeyemail.osu.edu">frueh.42@buckeyemail.osu.edu</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/michael-frueh-342995335/" target="_blank">https://www.linkedin.com/in/michael-frueh-342995335/</a></p>
-    <p>Github: <a href="https://github.com/michael0135" target="_blank">https://github.com/michael0135</a></p>
-  </section>
+    <section>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:michaelfrueh5589@gmail.com">michaelfrueh5589@gmail.com</a></p>
+      <p>School Email: <a href="mailto:frueh.42@buckeyemail.osu.edu">frueh.42@buckeyemail.osu.edu</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/michael-frueh-342995335/" target="_blank">michael-frueh</a></p>
+      <p>GitHub: <a href="https://github.com/michael0135" target="_blank">@michael0135</a></p>
+    </section>
 
-  <footer>
-    <p>© 2025 Michael Frueh Jr. All Rights Reserved.</p>
-  </footer>
+    <footer>
+      <p>© 2025 Michael Frueh Jr. All Rights Reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>

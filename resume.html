@@ -5,18 +5,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Michael Frueh – Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-     * {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
+      font-family: 'Inter', sans-serif;
+      background: #0f0f0f;
+      color: #f1f1f1;
       padding: 30px;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #1c1c1c;
+      padding: 10px 0;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: #444;
     }
 
     .container {
@@ -31,8 +63,9 @@
       width: 30%;
       background-color: #1c1c1c;
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 15px;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
     .sidebar img {
@@ -42,13 +75,31 @@
     }
 
     .sidebar h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
+      font-size: 22px;
+      margin-bottom: 5px;
+      color: #00f5ff;
     }
 
     .sidebar p {
       margin-bottom: 8px;
-      color: #bbb;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #00f5ff;
+      color: #111;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #00d0d0;
     }
 
     .content {
@@ -57,13 +108,17 @@
 
     section {
       margin-bottom: 40px;
+      background-color: #1c1c1c;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
 
     h2 {
-      color: #f5f5f5;
-      font-size: 24px;
+      color: #00f5ff;
+      font-size: 22px;
       margin-bottom: 10px;
-      border-bottom: 1px solid #333;
+      border-bottom: 2px solid #00f5ff;
       padding-bottom: 5px;
     }
 
@@ -85,59 +140,11 @@
     .subtext {
       font-style: italic;
       color: #aaa;
+      margin-bottom: 10px;
     }
 
     .entry {
       margin-bottom: 20px;
-    }
-
-    .download-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 15px;
-      background-color: #00bfff;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    .download-btn:hover {
-      background-color: #009acd;
-    }
-    nav {
-      position: sticky;
-      top: 0;
-      background-color: #1c1c1c;
-      padding: 10px 0;
-      text-align: center;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .navbar {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-    }
-
-    .navbar li {
-      display: inline;
-    }
-
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-
-    .navbar a:hover {
-      background-color: #333;
     }
   </style>
 </head>
@@ -148,20 +155,18 @@
       <li><a href="resume.html">Resume</a></li>
     </ul>
   </nav>
-  <div class="container">
 
-    <!-- Sidebar with photo and contact -->
+  <div class="container">
     <aside class="sidebar">
       <img src="IMG_7951.jpg" alt="Michael Frueh Headshot" />
       <h1>Michael Frueh Jr.</h1>
       <p>College Student | Future AI Engineer</p>
       <p>📍 Lima, OH</p>
-      <p>📧michaelfrueh5589@gmail.com</p>
+      <p>📧 michaelfrueh5589@gmail.com</p>
       <p>📞 Email First</p>
       <a href="Michael Frueh Resume.pdf" class="download-btn" download>Download Resume</a>
     </aside>
 
-    <!-- Main Resume Content -->
     <main class="content">
       <section>
         <h2>About Me</h2>
@@ -214,7 +219,7 @@
         <h2>Skills</h2>
         <ul>
           <li>Proficient in Python</li>
-          <li>Learning – HTML, CSS, Javascript</li>
+          <li>Learning – HTML, CSS, JavaScript</li>
           <li>Commonly uses – Git, GitHub, Visual Studio Code</li>
           <li>Organization, Communication, Time Management</li>
         </ul>
@@ -228,6 +233,6 @@
         </ul>
       </section>
     </main>
-
   </div>
 </body>
+</html>
