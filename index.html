@@ -3,193 +3,452 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Michael Frueh's Personal Website</title>
+  <meta name="description" content="Michael Frueh Jr. – CS&E student at Ohio State. Software engineer, AI enthusiast, and automation builder."/>
+  <title>Michael Frueh Jr. — Portfolio</title>
   <link rel="icon" type="image/png" href="websiteicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --bg:#080b0f; --surface:#0e1318; --surface2:#131920;
+      --border:rgba(255,255,255,0.07); --accent:#4fffb0;
+      --accent-dim:rgba(79,255,176,0.10); --text:#e8edf2;
+      --muted:#7a8a99; --heading:#ffffff;
+      --font-display:'Syne',sans-serif; --font-mono:'DM Mono',monospace;
+      --font-body:'DM Sans',sans-serif; --radius:12px;
+      --tr:0.3s cubic-bezier(0.4,0,0.2,1);
     }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0f0f0f;
-      color: #f1f1f1;
-      line-height: 1.6;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      background-color: #1c1c1c;
-      padding: 10px 0;
-      text-align: center;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .navbar {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-    }
-
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-
-    .navbar a:hover {
-      background-color: #444;
-    }
-
-    header {
-      background: linear-gradient(120deg, #1c1c1c, #333);
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    header h1 {
-      font-size: 2.0rem;
-      color: #ffffff;
-      text-shadow: 0 0 10px #00f5ff;
-    }
-
-    section {
-      background: #1f1f1f;
-      max-width: 850px;
-      margin: 1.5rem auto;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    }
-
-    section h2 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-      color: #00f5ff;
-      border-bottom: 2px solid #00f5ff;
-      padding-bottom: 5px;
-    }
-
-    ul {
-      padding-left: 1.5rem;
-    }
-
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    footer {
-      text-align: center;
-      background-color: #1c1c1c;
-      color: white;
-      padding: 1rem;
-    }
-
-    .headshot {
-      width: 200px;
-      border-radius: 100px;
-      float: left;
-      margin-right: 20px;
-      margin-bottom: 1rem;
-    }
-
-    .project-highlight {
-      background: #121212;
-      padding: 1rem;
-      border-left: 5px solid #00f5ff;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-    }
-
-    .bio-paragraph {
-      overflow: hidden;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.5}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,11,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:var(--heading);text-decoration:none}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;list-style:none;gap:.25rem;align-items:center}
+    .nav-links a{font-family:var(--font-mono);font-size:.78rem;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:6px;transition:var(--tr)}
+    .nav-links a:hover{color:var(--text);background:var(--surface2)}
+    .nav-cta{color:var(--bg)!important;background:var(--accent)!important}
+    .nav-cta:hover{background:#3de89c!important}
+    .hero{min-height:100vh;display:flex;align-items:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 30%,rgba(79,255,176,0.06) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 80% 70%,rgba(0,212,255,0.04) 0%,transparent 50%)}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
+    .hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid rgba(79,255,176,0.25);border-radius:100px;padding:5px 14px;font-family:var(--font-mono);font-size:.72rem;color:var(--accent);margin-bottom:1.5rem;letter-spacing:.04em}
+    .hero-badge::before{content:'';width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+    .hero h1{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;color:var(--heading);margin-bottom:1.25rem}
+    .hero h1 .accent{color:var(--accent)}
+    .hero h1 .line2{color:var(--muted);font-weight:400;font-size:.68em;display:block;margin-top:.3em}
+    .hero-desc{font-size:1.05rem;color:var(--muted);max-width:480px;margin-bottom:2rem;line-height:1.75}
+    .hero-actions{display:flex;gap:.75rem;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;font-family:var(--font-mono);font-size:.82rem;font-weight:500;text-decoration:none;transition:var(--tr);cursor:pointer;border:none;letter-spacing:.02em}
+    .btn-primary{background:var(--accent);color:var(--bg)}
+    .btn-primary:hover{background:#3de89c;transform:translateY(-1px);box-shadow:0 8px 30px rgba(79,255,176,0.25)}
+    .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+    .btn-ghost:hover{border-color:rgba(255,255,255,.2);background:var(--surface2);transform:translateY(-1px)}
+    .hero-photo{width:220px;height:260px;border-radius:20px;object-fit:cover;object-position:center top;border:2px solid var(--border);box-shadow:0 0 0 8px rgba(79,255,176,0.04),0 24px 60px rgba(0,0,0,0.6);flex-shrink:0}
+    .hero-stats{display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+    .stat-num{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--heading);line-height:1}
+    .stat-label{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+    .section{padding:6rem 2rem;max-width:1100px;margin:0 auto}
+    .section-label{font-family:var(--font-mono);font-size:.7rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem}
+    .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-.03em;color:var(--heading);margin-bottom:.75rem;line-height:1.15}
+    .section-sub{color:var(--muted);font-size:1rem;max-width:520px;margin-bottom:3rem}
+    .section-divider{max-width:1100px;margin:0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+    .skills-wrapper{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+    .skill-category{background:var(--surface);padding:1.75rem;transition:var(--tr)}
+    .skill-category:hover{background:var(--surface2)}
+    .skill-cat-icon{font-size:1.4rem;margin-bottom:.75rem;display:block}
+    .skill-cat-title{font-family:var(--font-display);font-size:.9rem;font-weight:700;color:var(--heading);margin-bottom:.75rem}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+    .tag{font-family:var(--font-mono);font-size:.7rem;color:var(--muted);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:4px;padding:3px 10px;transition:var(--tr)}
+    .tag.hi{color:var(--accent);background:var(--accent-dim);border-color:rgba(79,255,176,0.2)}
+    .projects-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+    .filter-bar{display:flex;gap:.4rem;flex-wrap:wrap}
+    .filter-btn{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:5px 14px;cursor:pointer;transition:var(--tr)}
+    .filter-btn:hover,.filter-btn.active{color:var(--accent);border-color:rgba(79,255,176,0.3);background:var(--accent-dim)}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem}
+    .project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;transition:var(--tr);position:relative;overflow:hidden}
+    .project-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-dim),transparent 60%);opacity:0;transition:var(--tr)}
+    .project-card:hover{border-color:rgba(79,255,176,0.2);transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,0,0,0.4)}
+    .project-card:hover::before{opacity:1}
+    .project-card.hidden{display:none}
+    .project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;position:relative}
+    .project-icon{font-size:1.5rem}
+    .project-status{font-family:var(--font-mono);font-size:.65rem;padding:2px 8px;border-radius:4px;letter-spacing:.04em}
+    .s-live{background:rgba(79,255,176,0.1);color:var(--accent);border:1px solid rgba(79,255,176,0.2)}
+    .s-win{background:rgba(255,215,0,0.1);color:#ffd700;border:1px solid rgba(255,215,0,0.2)}
+    .s-wip{background:rgba(255,180,0,0.1);color:#ffb400;border:1px solid rgba(255,180,0,0.2)}
+    .project-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--heading);margin-bottom:.5rem;letter-spacing:-.01em;position:relative}
+    .project-desc{font-size:.875rem;color:var(--muted);margin-bottom:1rem;line-height:1.65;position:relative}
+    .project-detail{position:relative}
+    .pdr{display:flex;gap:.5rem;margin-bottom:.4rem;font-size:.78rem}
+    .pdl{font-family:var(--font-mono);color:var(--accent);font-size:.68rem;flex-shrink:0;width:70px;padding-top:1px}
+    .pdv{color:var(--muted);line-height:1.5}
+    .project-stack{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1.25rem;position:relative}
+    .experience-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+    .exp-item{background:var(--surface);padding:1.75rem;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;transition:var(--tr)}
+    .exp-item:hover{background:var(--surface2)}
+    .exp-timeline{display:flex;flex-direction:column;align-items:center;gap:4px}
+    .exp-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px;box-shadow:0 0 10px rgba(79,255,176,0.4)}
+    .exp-line{width:1px;flex:1;background:var(--border)}
+    .exp-item:last-child .exp-line{display:none}
+    .exp-role{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.2rem}
+    .exp-company{font-family:var(--font-mono);font-size:.75rem;color:var(--accent);margin-bottom:.25rem}
+    .exp-date{font-family:var(--font-mono);font-size:.7rem;color:var(--muted);margin-bottom:.75rem}
+    .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+    .exp-bullets li{font-size:.875rem;color:var(--muted);padding-left:1.25rem;position:relative;line-height:1.6}
+    .exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:.75rem;top:2px}
+    .achievements-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
+    .achievement-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:var(--tr)}
+    .achievement-card:hover{border-color:rgba(79,255,176,0.2);transform:translateY(-2px)}
+    .achievement-icon{font-size:1.75rem;flex-shrink:0}
+    .achievement-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.3rem}
+    .achievement-desc{font-size:.82rem;color:var(--muted);line-height:1.6}
+    .contact-wrapper{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative;overflow:hidden}
+    .contact-wrapper::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(79,255,176,0.08),transparent 70%);pointer-events:none}
+    .contact-title{font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;color:var(--heading);letter-spacing:-.03em;margin-bottom:1rem;line-height:1.15}
+    .contact-title span{color:var(--accent)}
+    .contact-desc{color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:1.75rem}
+    .contact-links{display:flex;flex-direction:column;gap:.75rem}
+    .contact-link{display:flex;align-items:center;gap:.75rem;padding:.875rem 1.25rem;background:var(--surface2);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:var(--tr)}
+    .contact-link:hover{border-color:rgba(79,255,176,0.25);background:rgba(79,255,176,0.05);transform:translateX(4px)}
+    .contact-link-icon{font-size:1.1rem}
+    .contact-link-text{display:flex;flex-direction:column}
+    .contact-link-label{font-family:var(--font-mono);font-size:.65rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+    .contact-link-val{font-size:.85rem;color:var(--text);font-weight:500}
+    footer{border-top:1px solid var(--border);padding:2rem}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-text{font-family:var(--font-mono);font-size:.75rem;color:var(--muted)}
+    .footer-text a{color:var(--accent);text-decoration:none}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @media(max-width:768px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-photo{display:none}
+      .hero-stats{gap:1.5rem;flex-wrap:wrap}
+      .contact-wrapper{grid-template-columns:1fr;gap:2rem}
+      nav{padding:0 1rem}
+      .nav-links a{padding:6px 8px;font-size:.72rem}
     }
   </style>
 </head>
 <body>
-  <div>
-    <nav>
-      <ul class="navbar">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="resume.html">Resume</a></li>
-      </ul>
-    </nav>
-
-    <header>
-      <h1>Michael Frueh Jr. – Computer Science & Engineering Student</h1>
-      <p>Student | CSE Major | Future AI Engineer</p>
-      <blockquote style="font-style: italic; color: #ccc; margin-top: 10px;">
-        "Quiet work. Real results. That’s the goal."
-      </blockquote>
-    </header>
-
-    <section>
-      <h2>Get to Know Me</h2>
-      <img src="IMG_7908.jpg" alt="Michael Frueh Headshot" class="headshot">
-      <div class="bio-paragraph">
-        <p>Hey, I’m Michael Frueh Jr., a Computer Science & Engineering student at The Ohio State University with a mind and heart set on making an impact. I’m passionate about solving real problems, learning through challenges, and pushing myself to grow in life, and in the world around me. Long term, I’m working toward becoming an AI Engineer with a focus on visual applications and tech that solves human-centered problems. I want to be a builder, a leader, and someone who doesn't just chase opportunity, but creates it.</p>
-      </div>
-      <div style="clear: both;"></div>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
-      <div class="project-highlight">
-        <strong>MeetMichael.dev</strong> – Personal website designed and built from scratch using HTML, CSS.
-      </div>
-      <div class="project-highlight">
-        <strong>Expense Visualizer App</strong> – In development. Will allow users to track and visualize budgets and expenses dynamically.
-      </div>
-    </section>
-
-    <section>
-      <h2>Achievements</h2>
-      <ul>
-        <li><strong>American Eagle Steven A. Davis Scholar</strong> – Awarded $40,000 scholarship out of 200+ applicants.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Currently Learning</h2>
-      <ul>
-        <li><strong>HTML + CSS</strong> – Building this website and mastering layout/design</li>
-        <li><strong>C++</strong> – Developing a stronger understanding of C++ fundamentals</li>
-        <li><strong>JavaScript</strong> – Building dynamic web apps using API integrations</li>
-        <li><strong>React</strong> – Getting started with modern component-based frontends</li>
-      </ul>
-    </section>
-
-    <section>
-  <h2>Goals</h2>
-  <ul>
-    <li>🔧 Build and deploy 3 full-stack projects by the end of 2026</li>
-    <li>🌐 Land a summer internship in software or AI</li>
-    <li>📚 Finish a C++ and a React course before Fall semester</li>
-    <li>💼 Strengthen my resume to reflects growth and real skills</li>
+<nav>
+  <a href="index.html" class="nav-logo">MF<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="resume.html" class="nav-cta">Resume →</a></li>
   </ul>
-    </section>
+</nav>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:michaelfrueh5589@gmail.com">michaelfrueh5589@gmail.com</a></p>
-      <p>School Email: <a href="mailto:frueh.42@buckeyemail.osu.edu">frueh.42@buckeyemail.osu.edu</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/michael-frueh-342995335/" target="_blank">michael-frueh</a></p>
-      <p>GitHub: <a href="https://github.com/michael0135" target="_blank">@michael0135</a></p>
-    </section>
-
-    <footer>
-      <p>© 2025 Michael Frueh Jr. All Rights Reserved.</p>
-    </footer>
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Open to Summer / Fall 2026 Internships</div>
+      <h1>Michael<br><span class="accent">Frueh Jr.</span><span class="line2">CS&amp;E @ The Ohio State University</span></h1>
+      <p class="hero-desc">Building at the intersection of AI, automation, and software engineering. Based in Lima, OH — pursuing internships in AI software engineering and automation for 2026.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="resume.html" class="btn btn-ghost">Resume</a>
+        <a href="https://github.com/michael0135" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">3+</div><div class="stat-label">Years Coding</div></div>
+        <div><div class="stat-num">4+</div><div class="stat-label">Projects Built</div></div>
+        <div><div class="stat-num">$40K</div><div class="stat-label">Scholarship</div></div>
+        <div><div class="stat-num">2028</div><div class="stat-label">Graduation</div></div>
+      </div>
+    </div>
+    <img src="IMG_7908.jpg" alt="Michael Frueh Jr. headshot" class="hero-photo" />
   </div>
+</section>
+
+<div class="section-divider"></div>
+
+<div class="section reveal" id="skills">
+  <p class="section-label">// what I work with</p>
+  <h2 class="section-title">Skills &amp; Technologies</h2>
+  <p class="section-sub">Grounded in CS fundamentals and growing fast in AI, automation, and full-stack development.</p>
+  <div class="skills-wrapper">
+    <div class="skill-category">
+      <span class="skill-cat-icon">💻</span>
+      <div class="skill-cat-title">Languages</div>
+      <div class="skill-tags">
+        <span class="tag hi">Python</span><span class="tag hi">Java</span>
+        <span class="tag">C++</span><span class="tag">HTML/CSS</span>
+        <span class="tag">JavaScript</span><span class="tag">MATLAB</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <span class="skill-cat-icon">🤖</span>
+      <div class="skill-cat-title">AI &amp; Automation</div>
+      <div class="skill-tags">
+        <span class="tag hi">IBM Watsonx</span><span class="tag hi">Rewst (RPA)</span>
+        <span class="tag">Microsoft Graph</span><span class="tag">NinjaOne</span>
+        <span class="tag">ConnectWise</span><span class="tag">Prompt Engineering</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <span class="skill-cat-icon">🛠️</span>
+      <div class="skill-cat-title">Tools &amp; Platforms</div>
+      <div class="skill-tags">
+        <span class="tag hi">Git / GitHub</span><span class="tag hi">VS Code</span>
+        <span class="tag">Flutter</span><span class="tag">Arduino</span>
+        <span class="tag">ESP32</span><span class="tag">GitHub Pages</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <span class="skill-cat-icon">🎓</span>
+      <div class="skill-cat-title">Relevant Coursework</div>
+      <div class="skill-tags">
+        <span class="tag">Fundamentals of Engineering</span>
+        <span class="tag">Software I (Java)</span>
+        <span class="tag">C++ Programming</span>
+        <span class="tag">Physics</span>
+        <span class="tag">Calculus</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<div class="section reveal" id="projects">
+  <div class="projects-header">
+    <div>
+      <p class="section-label">// what I've built</p>
+      <h2 class="section-title">Projects</h2>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ai">AI</button>
+      <button class="filter-btn" data-filter="automation">Automation</button>
+      <button class="filter-btn" data-filter="hardware">Hardware</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+    </div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card" data-tags="automation">
+      <div class="project-header">
+        <span class="project-icon">🔁</span>
+        <span class="project-status s-live">DEPLOYED</span>
+      </div>
+      <div class="project-title">Ticketing Workflow Automation</div>
+      <div class="project-desc">Internal automation project at Perry proTECH — designed and built RPA workflows to reduce manual effort in IT ticketing and policy alignment processes.</div>
+      <div class="project-detail">
+        <div class="pdr"><span class="pdl">Problem</span><span class="pdv">Repetitive manual ticketing tasks across client environments were slow and error-prone.</span></div>
+        <div class="pdr"><span class="pdl">Approach</span><span class="pdv">Built multi-step Rewst workflows integrating RMM, PSA, and Microsoft Graph APIs.</span></div>
+        <div class="pdr"><span class="pdl">Outcome</span><span class="pdv">Workflows now run on-trigger automatically — manual overhead significantly reduced.</span></div>
+      </div>
+      <div class="project-stack">
+        <span class="tag hi">Rewst</span><span class="tag hi">Microsoft Graph</span><span class="tag">NinjaOne</span><span class="tag">ConnectWise</span><span class="tag">RPA</span>
+      </div>
+    </div>
+
+    <div class="project-card" data-tags="hardware">
+      <div class="project-header">
+        <span class="project-icon">🦾</span>
+        <span class="project-status s-wip">IN PROGRESS</span>
+      </div>
+      <div class="project-title">Smart Leg Brace (ESP32)</div>
+      <div class="project-desc">IoT leg brace for physical therapy patients — tracks steps, monitors gait, and syncs data to a Flutter companion app over Bluetooth.</div>
+      <div class="project-detail">
+        <div class="pdr"><span class="pdl">Problem</span><span class="pdv">PT patients need continuous gait monitoring between clinic visits.</span></div>
+        <div class="pdr"><span class="pdl">Approach</span><span class="pdv">MPU-6050 on ESP32 captures motion; Flutter app streams data live over BLE.</span></div>
+        <div class="pdr"><span class="pdl">Outcome</span><span class="pdv">Step counter and BLE link functional; animated Flutter UI and feedback screen complete.</span></div>
+      </div>
+      <div class="project-stack">
+        <span class="tag hi">ESP32</span><span class="tag hi">Flutter</span><span class="tag">Arduino C++</span><span class="tag">MPU-6050</span><span class="tag">BLE</span>
+      </div>
+    </div>
+
+    <div class="project-card" data-tags="web">
+      <div class="project-header">
+        <span class="project-icon">🌐</span>
+        <span class="project-status s-live">LIVE</span>
+      </div>
+      <div class="project-title">MeetMichael.dev — Portfolio</div>
+      <div class="project-desc">This portfolio site — designed for performance, accessibility, and recruiter UX. Built with semantic HTML, custom CSS, and vanilla JS. Deployed via GitHub Pages.</div>
+      <div class="project-detail">
+        <div class="pdr"><span class="pdl">Problem</span><span class="pdv">Needed a professional showcase for engineering projects and skills.</span></div>
+        <div class="pdr"><span class="pdl">Approach</span><span class="pdv">Custom design system, scroll animations, project filtering, and full mobile support.</span></div>
+        <div class="pdr"><span class="pdl">Outcome</span><span class="pdv">Live at michael0135.github.io — fast, accessible, recruiter-optimized.</span></div>
+      </div>
+      <div class="project-stack">
+        <span class="tag hi">HTML</span><span class="tag hi">CSS</span><span class="tag">JavaScript</span><span class="tag">GitHub Pages</span><span class="tag">SEO</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<div class="section reveal" id="experience">
+  <p class="section-label">// where I've worked</p>
+  <h2 class="section-title">Experience</h2>
+  <p class="section-sub">Hands-on IT automation, technical support, and customer-facing experience alongside full-time coursework.</p>
+  <div class="experience-list">
+
+    <div class="exp-item">
+      <div class="exp-timeline"><div class="exp-dot"></div><div class="exp-line"></div></div>
+      <div>
+        <div class="exp-role">Support Engineer (Internship)</div>
+        <div class="exp-company">Perry proTECH — Managed Service Provider · Lima, OH</div>
+        <div class="exp-date">Dec. 2025 – Present</div>
+        <ul class="exp-bullets">
+          <li>Design and implement workflow automations using Rewst to reduce manual operational tasks across managed client environments.</li>
+          <li>Develop automation logic integrating RMM, PSA, and Microsoft Graph to streamline policy alignment and ticket handling.</li>
+          <li>Collaborate with engineers to identify repetitive workflows and translate them into scalable, trigger-based solutions.</li>
+          <li>Build data-driven reports to improve operational visibility for both internal teams and clients.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-timeline"><div class="exp-dot"></div><div class="exp-line"></div></div>
+      <div>
+        <div class="exp-role">Student IT Analyst</div>
+        <div class="exp-company">The Buckeye Bar — The Ohio State University · Columbus, OH</div>
+        <div class="exp-date">Oct. 2024 – Present</div>
+        <ul class="exp-bullets">
+          <li>Provide frontline IT support and troubleshooting for students and faculty at OSU's campus help desk.</li>
+          <li>Diagnose hardware, software, and network issues across a variety of devices and operating systems.</li>
+          <li>Manage account access and escalations in compliance with university IT security policies.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-timeline"><div class="exp-dot"></div><div class="exp-line"></div></div>
+      <div>
+        <div class="exp-role">Brand Ambassador (Year-Round)</div>
+        <div class="exp-company">American Eagle Outfitters</div>
+        <div class="exp-date">2023 – Present</div>
+        <ul class="exp-bullets">
+          <li>Represent the brand through customer engagement, product knowledge, and maintaining visual displays.</li>
+          <li>Manage dressing rooms and assist shoppers in a fast-paced retail environment.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<div class="section reveal" id="achievements">
+  <p class="section-label">// recognition</p>
+  <h2 class="section-title">Achievements</h2>
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <div class="achievement-icon">🏆</div>
+      <div>
+        <div class="achievement-title">IBM AI Hackathon — Best Video Award</div>
+        <div class="achievement-desc">1 of 10 winning teams out of 70 competing. Built an IBM Watsonx-powered credit debt advisor with fine-tuned AI model integration.</div>
+      </div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-icon">🎓</div>
+      <div>
+        <div class="achievement-title">American Eagle Steven A. Davis Scholar</div>
+        <div class="achievement-desc">Awarded $40,000 national scholarship — selected from 200+ applicants based on academic merit, leadership, and community impact.</div>
+      </div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-icon">🚗</div>
+      <div>
+        <div class="achievement-title">Honda Beta Group Program</div>
+        <div class="achievement-desc">Selected for Honda &amp; OSU partnership program (2025–2028) — exclusive access to Honda co-ops, internships, and monthly professional development events.</div>
+      </div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-icon">🤝</div>
+      <div>
+        <div class="achievement-title">120+ Volunteer Hours</div>
+        <div class="achievement-desc">Community service at St. Rose Church. Active in OSU's Diversity Committee, Black Student Union, and Bible Club.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<div class="section reveal" id="contact">
+  <div class="contact-wrapper">
+    <div>
+      <p class="section-label">// let's connect</p>
+      <h2 class="contact-title">Open to<br><span>Opportunities</span></h2>
+      <p class="contact-desc">Looking for summer or fall 2026 internships in AI software engineering, automation, or software development. If you think I'd be a good fit — reach out.</p>
+      <a href="mailto:michaelfrueh5589@gmail.com" class="btn btn-primary">Send an Email →</a>
+    </div>
+    <div class="contact-links">
+      <a href="tel:4195168450" class="contact-link">
+        <span class="contact-link-icon">📞</span>
+        <div class="contact-link-text">
+          <span class="contact-link-label">Phone</span>
+          <span class="contact-link-val">(419) 516-8450</span>
+        </div>
+      </a>
+      <a href="mailto:michaelfrueh5589@gmail.com" class="contact-link">
+        <span class="contact-link-icon">✉️</span>
+        <div class="contact-link-text">
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-val">michaelfrueh5589@gmail.com</span>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/michael-frueh-jr-342995335" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-icon">🔗</span>
+        <div class="contact-link-text">
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-val">michael-frueh-jr</span>
+        </div>
+      </a>
+      <a href="https://github.com/michael0135" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-icon">💻</span>
+        <div class="contact-link-text">
+          <span class="contact-link-label">GitHub</span>
+          <span class="contact-link-val">@michael0135</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-text">© 2025 Michael Frueh Jr.</p>
+    <p class="footer-text">
+      <a href="https://github.com/michael0135" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/michael-frueh-jr-342995335" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="mailto:michaelfrueh5589@gmail.com">Email</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)} });
+  }, {threshold:0.08});
+  reveals.forEach(el => obs.observe(el));
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.classList.toggle('hidden', f !== 'all' && !card.dataset.tags.includes(f));
+      });
+    });
+  });
+</script>
 </body>
 </html>
