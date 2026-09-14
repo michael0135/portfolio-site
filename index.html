@@ -1,40 +1,349 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-  <meta charset='UTF-8' />
-  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-  <meta name='description' content='Michael Frueh Jr. — Computer Science & Engineering student building AI, automation, and practical software products.' />
-  <title>Michael Frueh Jr. — Portfolio</title>
-  <link rel='icon' type='image/png' href='websiteicon.png' />
-  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap' rel='stylesheet' />
-  <style>
-    :root { --bg:#060816; --bg-soft:#0d1426; --surface:rgba(255,255,255,0.04); --surface-strong:rgba(255,255,255,0.08); --border:rgba(255,255,255,0.12); --text:#f5f7ff; --muted:#9aa6c7; --accent:#63f5c4; --accent-2:#77b7ff; --shadow:0 20px 60px rgba(0,0,0,0.28); --radius:22px; --radius-sm:14px; --transition:220ms ease; }
-    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:radial-gradient(circle at top left, rgba(99,245,196,0.12), transparent 28%), linear-gradient(135deg, var(--bg) 0%, #081120 100%);color:var(--text);line-height:1.65;overflow-x:hidden} a{color:inherit} img{display:block;max-width:100%}
-    nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:rgba(6,8,22,0.8);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-    .brand{font-weight:800;letter-spacing:0.08em;text-transform:uppercase;font-size:0.95rem;text-decoration:none}.brand span{color:var(--accent)}
-    .nav-links{display:flex;gap:0.45rem;flex-wrap:wrap}.nav-links a{text-decoration:none;color:var(--muted);padding:0.45rem 0.7rem;border-radius:999px;transition:var(--transition);font-size:0.9rem}.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--surface)}
-    .section{width:min(1120px, calc(100% - 2rem));margin:0 auto;padding:5rem 0}.hero{padding-top:3.5rem;padding-bottom:3.5rem}.hero-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:2rem;align-items:center}
-    .eyebrow{display:inline-flex;align-items:center;gap:0.55rem;padding:0.45rem 0.8rem;border-radius:999px;background:rgba(99,245,196,0.1);border:1px solid rgba(99,245,196,0.22);color:var(--accent);font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem}.eyebrow::before{content:'';width:0.55rem;height:0.55rem;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0.25rem rgba(99,245,196,0.18)}
-    h1{font-size:clamp(2.4rem, 5vw, 4.4rem);line-height:1.05;margin-bottom:1rem;letter-spacing:-0.03em}h1 .accent{color:var(--accent)}
-    .lead{font-size:1.04rem;color:var(--muted);max-width:640px;margin-bottom:1.5rem}.actions{display:flex;flex-wrap:wrap;gap:0.8rem;margin-bottom:1.5rem}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:0.45rem;border-radius:999px;padding:0.8rem 1.1rem;text-decoration:none;font-weight:600;transition:var(--transition);border:1px solid transparent}.btn-primary{background:linear-gradient(135deg, var(--accent), #8cf4d4);color:#04120d}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(99,245,196,0.2)}.btn-ghost{background:rgba(255,255,255,0.03);border-color:var(--border);color:var(--text)}.btn-ghost:hover{background:var(--surface)}
-    .hero-card{position:relative;padding:1.2rem;border:1px solid var(--border);border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));box-shadow:var(--shadow)}.hero-card img{border-radius:1rem;height:340px;object-fit:cover;object-position:center top}.hero-card .caption{margin-top:0.9rem;color:var(--muted);font-size:0.92rem}
-    .stats{display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:0.8rem;margin-top:1.4rem}.stat{padding:0.9rem 0.9rem 0.8rem;border:1px solid var(--border);border-radius:var(--radius-sm);background:rgba(255,255,255,0.03)}.stat strong{display:block;font-size:1.15rem;margin-bottom:0.2rem}.stat span{color:var(--muted);font-size:0.8rem}
-    .section-title{font-size:clamp(1.55rem,3vw,2.15rem);margin-bottom:0.7rem;letter-spacing:-0.02em}.section-copy{color:var(--muted);max-width:680px;margin-bottom:1.5rem}.cards{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:1rem}.panel{padding:1.2rem;border-radius:var(--radius-sm);border:1px solid var(--border);background:rgba(255,255,255,0.03);box-shadow:inset 0 1px 0 rgba(255,255,255,0.03)}.panel .icon{font-size:1.15rem;margin-bottom:0.7rem}.panel h3{font-size:1rem;margin-bottom:0.35rem}.panel p{color:var(--muted);font-size:0.92rem}
-    .highlight{display:grid;grid-template-columns:1.1fr 0.9fr;gap:1.2rem;margin-top:1.2rem;align-items:stretch}.feature-card{border-radius:var(--radius);border:1px solid var(--border);background:linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025));padding:1.35rem;box-shadow:var(--shadow)}.feature-card h3{font-size:1.25rem;margin-bottom:0.45rem}.feature-card p{color:var(--muted);margin-bottom:0.9rem}.feature-list{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem}.pill{display:inline-flex;align-items:center;gap:0.35rem;padding:0.4rem 0.7rem;border-radius:999px;background:rgba(119,183,255,0.12);color:#cfe7ff;border:1px solid rgba(119,183,255,0.2);font-size:0.8rem}
-    .filters{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:1rem}.filter-btn{border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted);padding:0.45rem 0.8rem;cursor:pointer;font-size:0.84rem;transition:var(--transition)}.filter-btn.active,.filter-btn:hover{color:var(--text);background:rgba(99,245,196,0.12);border-color:rgba(99,245,196,0.24)}.project-grid{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:1rem}.project-card{border:1px solid var(--border);border-radius:var(--radius-sm);padding:1.15rem;background:rgba(255,255,255,0.03);transition:transform var(--transition), border-color var(--transition), background var(--transition)}.project-card:hover{transform:translateY(-4px);border-color:rgba(99,245,196,0.4);background:rgba(255,255,255,0.05)}.project-card.is-hidden{display:none}.project-card .topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem;gap:0.8rem}.status{font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 0.55rem;border-radius:999px}.status.live{background:rgba(99,245,196,0.12);color:var(--accent)}.status.wip{background:rgba(255,215,74,0.14);color:#f9d56e}.status.done{background:rgba(119,183,255,0.16);color:#cfe7ff}.project-card h3{margin-bottom:0.35rem;font-size:1.08rem}.project-card p{color:var(--muted);font-size:0.92rem;margin-bottom:0.8rem}.project-card img{border-radius:0.9rem;margin:0.5rem 0 0.8rem;height:180px;width:100%;object-fit:cover}.project-card ul{list-style:none;display:grid;gap:0.35rem;color:var(--muted);font-size:0.9rem}.project-card ul li::before{content:'•';color:var(--accent);margin-right:0.45rem}.tag-row{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:0.8rem}
-    .timeline{display:grid;gap:0.8rem;margin-top:1rem}.timeline-item{border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem 1.05rem;background:rgba(255,255,255,0.03)}.timeline-item strong{display:block;font-size:1rem;margin-bottom:0.2rem}.timeline-item .meta{color:var(--accent);font-size:0.82rem;margin-bottom:0.3rem}.timeline-item .date{color:var(--muted);font-size:0.82rem}.timeline-item ul{margin-top:0.45rem;padding-left:1rem;color:var(--muted)}
-    .contact-card{border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;background:linear-gradient(135deg, rgba(99,245,196,0.12), rgba(119,183,255,0.08));box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}.contact-card p{color:var(--muted);margin-top:0.35rem}
-    footer{padding:1.6rem 1.25rem 2.2rem;color:var(--muted);font-size:0.9rem;border-top:1px solid var(--border);margin-top:2rem}.footer-inner{width:min(1120px, calc(100% - 2rem));margin:0 auto;display:flex;justify-content:space-between;gap:0.8rem;flex-wrap:wrap}
-    .reveal{opacity:0;transform:translateY(16px);transition:600ms ease}.reveal.is-visible{opacity:1;transform:translateY(0)}
-    @media (max-width:900px){.hero-grid,.highlight,.cards,.project-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2, minmax(0, 1fr))}}
-    @media (max-width:640px){nav{padding:0.95rem 0.9rem}.section{width:min(100% - 1.1rem, 1120px);padding:4rem 0}.stats{grid-template-columns:1fr}.hero-card img{height:250px}.contact-card{align-items:flex-start}}
-  </style>
-</head>
-<body>
-  <div class='site-shell'>
-    <nav><a href='#top' class='brand'>Michael <span>Frueh Jr.</span></a><div class='nav-links'><a href='#about'>About</a><a href='#projects'>Projects</a><a href='#experience'>Experience</a><a href='resume.html'>Resume</a></div></nav>
-    <main id='top'>
-      <section class='section hero'><div class='hero-grid'><div><div class='eyebrow'>Building practical AI and software products</div><h1>Hi, I’m <span class='accent'>Michael Frueh Jr.</span> — a student engineer creating AI tools, automation, and thoughtful software.</h1><p class='lead'>I’m a Computer Science & Engineering student at The Ohio State University focused on real-world impact: turning messy workflows into efficient systems, building AI experiences that help people learn, and shipping projects that solve problems rather than just look impressive.</p><div class='actions'><a class='btn btn-primary' href='#projects'>See my work</a><a class='btn btn-ghost' href='resume.html'>View resume</a><a class='btn btn-ghost' href='https://github.com/michael0135' target='_blank' rel='noopener'>GitHub</a></div><div class='stats'><div class='stat'><strong>4+</strong><span>Projects shipped or launched</span></div><div class='stat'><strong>2+</strong><span>Years building technical solutions</span></div><div class='stat'><strong>AI</strong><span>Prompting, automation, and app development</span></div><div class='stat'><strong>OSU</strong><span>CS&E student, class of 2028</span></div></div></div><div class='hero-card reveal'><img src='IMG_7908.jpg' alt='Michael Frueh Jr.' /><div class='caption'>I enjoy building products that are useful, polished, and easy for people to trust.</div></div></div></section>
-      <section class='section reveal' id='about'><h2 class='section-title'>What employers can count on from me</h2><p class='section-copy'>I combine technical curiosity with a practical mindset. I like projects that improve everyday work, help people learn, and make complex systems feel simple.</p><div class='cards'><div class='panel'><div class='icon'>🧠</div><h3>AI product thinking</h3><p>I’ve explored generative AI, prompt design, and real product workflows that turn model output into something useful.</p></div><div class='panel'><div class='icon'>⚙️</div><h3>Workflow automation</h3><p>I’ve built and improved automation processes in IT and operations settings, focusing on reliability and reduction of repetitive work.</p></div><div class='panel'><div class='icon'>🤝</div><h3>Cross-functional communication</h3><p>My experience spans support, customer interaction, and engineering work, which makes me comfortable working with both technical and non-technical teams.</p></div></div></section>
-      <section class='section reveal' id='projects'><h2 class='section-title'>Selected projects</h2><p class='section-copy'>My recent work is centered around AI, automation, embedded systems, and polished user experiences.</p><div class='filters' role='toolbar' aria-label='Project filters'><button class='filter-btn active' data-filter='all'>All</button><button class='filter-btn' data-filter='ai'>AI</button><button class='filter-btn' data-filter='automation'>Automation</button><button class='filter-btn' data-filter='hardware'>Hardware</button><button class='filter-btn' data-filter='web'>Web</button></div><div class='highlight'><div class='feature-card'><div class='topline'><span class='status wip'>In progress</span><span class='pill'>AI • Education • Productivity</span></div><h3>LectureNote App</h3><p>An AI-powered app that listens to lectures, summarizes the most important ideas, and generates practice quizzes to help students study smarter.</p><p>This is a strong example of the kind of product I want to build: useful, intuitive, and rooted in a real learning problem.</p><div class='feature-list'><span class='pill'>Speech capture</span><span class='pill'>Summarization</span><span class='pill'>Quiz generation</span><span class='pill'>Student learning</span></div></div><div class='feature-card'><h3>Featured build: Smart Leg Brace</h3><p>This project was completed successfully and gave me a strong foundation in embedded systems, motion sensing, and teammate collaboration.</p><img src='legbraceteam.jpg' alt='Smart leg brace team' /><div class='feature-list'><span class='pill'>ESP32</span><span class='pill'>Flutter</span><span class='pill'>BLE</span><span class='pill'>Gait tracking</span></div></div></div><div class='project-grid' style='margin-top:1rem;'><article class='project-card' data-category='ai'><div class='topline'><span class='status wip'>In progress</span><span class='pill'>AI</span></div><h3>LectureNote App</h3><p>Listening to lecture audio, extracting high-value concepts, and turning them into concise summaries plus practice quizzes.</p><ul><li>Focused on study support and retention.</li><li>Built with an eye toward practical AI UX.</li><li>Designed to save time for students during review.</li></ul><div class='tag-row'><span class='pill'>AI</span><span class='pill'>Python</span><span class='pill'>Product design</span></div></article><article class='project-card' data-category='hardware'><div class='topline'><span class='status done'>Completed</span><span class='pill'>Hardware</span></div><h3>Smart Leg Brace</h3><p>IoT-based brace for physical therapy support, combining motion sensing, data collection, and a companion app experience.</p><img src='legbraceteam.jpg' alt='Smart leg brace project team' /><ul><li>Integrated motion tracking and real-time feedback.</li><li>Helped validate the concept through a successful build.</li><li>Strengthened my embedded systems and teamwork skills.</li></ul><div class='tag-row'><span class='pill'>ESP32</span><span class='pill'>Flutter</span><span class='pill'>BLE</span></div></article><article class='project-card' data-category='automation'><div class='topline'><span class='status live'>Deployed</span><span class='pill'>Automation</span></div><h3>Ticketing Workflow Automation</h3><p>Built automated workflows to reduce repetitive operational steps in a professional IT environment.</p><ul><li>Used Rewst and Microsoft Graph integrations.</li><li>Improved workflow consistency and speed.</li><li>Focused on solving real operational pain points.</li></ul><div class='tag-row'><span class='pill'>Rewst</span><span class='pill'>RPA</span><span class='pill'>Microsoft Graph</span></div></article><article class='project-card' data-category='web'><div class='topline'><span class='status live'>Live</span><span class='pill'>Web</span></div><h3>Portfolio Site</h3><p>A polished, recruiter-focused portfolio designed to present my work clearly and professionally.</p><ul><li>Built with semantic HTML, custom CSS, and modest motion.</li><li>Designed for clarity and quick scanning by employers.</li><li>Deployed and easy to share.</li></ul><div class='tag-row'><span class='pill'>HTML</span><span class='pill'>CSS</span><span class='pill'>JavaScript</span></div></article></div></section><section class='section reveal' id='experience'><h2 class='section-title'>Experience snapshot</h2><p class='section-copy'>My background blends technical troubleshooting, automation, and customer-facing work — all while building toward a career in software and AI.</p><div class='timeline'><div class='timeline-item'><strong>Support Engineer</strong><div class='meta'>Perry proTECH · Managed Service Provider</div><div class='date'>December 2025 – May 1, 2026</div><ul><li>Built workflow automations for repetitive technical operations.</li><li>Worked with Microsoft Graph, RMM, and PSA systems.</li><li>Focused on process efficiency and reliability.</li></ul></div><div class='timeline-item'><strong>Student IT Analyst</strong><div class='meta'>The Buckeye Bar · The Ohio State University</div><div class='date'>October 2024 – May 1, 2026</div><ul><li>Provided frontline IT support for students and faculty.</li><li>Handled troubleshooting across devices, accounts, and software issues.</li><li>Supported a campus technology environment with professionalism and calm problem-solving.</li></ul></div><div class='timeline-item'><strong>Brand Ambassador</strong><div class='meta'>American Eagle Outfitters</div><div class='date'>2023 – Present</div><ul><li>Maintains strong customer engagement and visual standards.</li><li>Brings a consistent, people-focused work ethic to every team environment.</li></ul></div></div></section><section class='section reveal'><div class='contact-card'><div><h2 class='section-title' style='margin-bottom:0.3rem;'>Interested in working together?</h2><p>I’m looking for opportunities where I can contribute to thoughtful software, AI products, automation, and technical problem-solving.</p></div><a class='btn btn-primary' href='mailto:michaelfrueh5589@gmail.com'>Email me</a></div></section></main><footer><div class='footer-inner'><span>© 2026 Michael Frueh Jr.</span><span>michaelfrueh5589@gmail.com · LinkedIn · GitHub</span></div></footer></div><script>const revealItems=document.querySelectorAll('.reveal');const observer=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting)entry.target.classList.add('is-visible');});},{threshold:0.15});revealItems.forEach((item)=>observer.observe(item));const filterButtons=document.querySelectorAll('.filter-btn');const cards=document.querySelectorAll('.project-card');filterButtons.forEach((button)=>{button.addEventListener('click',()=>{filterButtons.forEach((btn)=>btn.classList.remove('active'));button.classList.add('active');const filter=button.dataset.filter;cards.forEach((card)=>{const category=card.dataset.category;const show=filter==='all'||category===filter;card.classList.toggle('is-hidden',!show);});});});</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfolio of Michael Frueh Jr., an Ohio State Computer Science & Engineering student building software, applied AI, and data-driven automation. Seeking a Summer 2027 internship.">
+    <meta name="theme-color" content="#07111f">
+    <meta property="og:title" content="Michael Frueh Jr. | Software, AI & Data Engineering">
+    <meta property="og:description" content="Software engineering, applied AI, mobile, and data automation projects from an Ohio State CSE student and incoming Honda Data Services co-op.">
+    <meta property="og:type" content="website">
+    <title>Michael Frueh Jr. | Software, AI & Data Engineering</title>
+    <link rel="icon" type="image/png" href="websiteicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="page-noise" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <nav class="nav container" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Michael Frueh Jr. - home">
+          <span class="brand-mark" aria-hidden="true">MF</span>
+          <span class="brand-name">Michael Frueh Jr.</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+          <span class="sr-only">Open navigation</span>
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a class="nav-resume" href="resume.html">Resume <span aria-hidden="true">&nearr;</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero section" id="top">
+        <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <p class="availability"><span aria-hidden="true"></span> Open to Summer 2027 internships</p>
+            <p class="hero-intro">Michael Frueh Jr. &middot; Computer Science &amp; Engineering @ Ohio State</p>
+            <h1>Building reliable software with <em>AI, data, and automation.</em></h1>
+            <p class="hero-summary">I build full-stack AI applications, offline-first mobile products, browser extensions, and operational automations. I am targeting Software Engineering, AI Engineering, Data Analyst, and data-focused engineering roles, with an incoming Honda Data Services co-op in Spring 2027.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projects">View projects <span aria-hidden="true">&darr;</span></a>
+              <a class="button button-secondary" href="Michael_Frueh_Jr_ResumeG.pdf" download>Download resume <span aria-hidden="true">&darr;</span></a>
+            </div>
+            <div class="hero-links" aria-label="Professional links">
+              <a href="https://github.com/michael0135" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">&nearr;</span></a>
+              <a href="https://www.linkedin.com/in/michael-frueh-jr-342995335" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">&nearr;</span></a>
+              <a href="mailto:michaelfrueh5589@gmail.com">Email <span aria-hidden="true">&nearr;</span></a>
+            </div>
+          </div>
+
+          <aside class="hero-portrait" aria-label="Profile summary">
+            <div class="portrait-frame">
+              <img src="michael-frueh-headshot.jpg" width="1200" height="1800" alt="Professional portrait of Michael Frueh Jr.">
+            </div>
+            <div class="portrait-card portrait-card-top">
+              <span class="portrait-label">Incoming</span>
+              <strong>Honda Data Services</strong>
+              <small>Spring 2027 co-op</small>
+            </div>
+            <div class="portrait-card portrait-card-bottom">
+              <span class="portrait-code" aria-hidden="true">{ }</span>
+              <div><strong>Software &middot; AI &middot; Data</strong><small>Columbus, Ohio</small></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="container proof-strip" aria-label="Key qualifications">
+          <div><strong>2029</strong><span>Expected graduation</span></div>
+          <div><strong>55</strong><span>Passing MichaTone tests</span></div>
+          <div><strong>9,250</strong><span>Content Shield analyses benchmarked</span></div>
+          <div><strong>3.2</strong><span>Cumulative GPA</span></div>
+        </div>
+      </section>
+
+      <section class="section section-compact" id="focus" aria-labelledby="focus-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Career focus</p>
+              <h2 id="focus-title">Three disciplines, one engineering mindset.</h2>
+            </div>
+            <p>I care about systems that are useful beyond the demo: thoughtfully designed, testable, and grounded in real workflows.</p>
+          </div>
+          <div class="focus-grid">
+            <article class="focus-card reveal">
+              <span class="focus-number">01</span>
+              <h3>Software Engineering</h3>
+              <p>Full-stack, mobile, and backend development shaped by object-oriented design, APIs, testing, and maintainable architecture.</p>
+              <span class="focus-tech">Java &middot; Python &middot; JavaScript &middot; Flutter</span>
+            </article>
+            <article class="focus-card reveal">
+              <span class="focus-number">02</span>
+              <h3>AI Engineering</h3>
+              <p>AI-enabled products that turn course material and local content into practical user experiences with privacy and context in mind.</p>
+              <span class="focus-tech">FastAPI &middot; OpenAI API &middot; REST APIs</span>
+            </article>
+            <article class="focus-card reveal">
+              <span class="focus-number">03</span>
+              <h3>Data &amp; Automation</h3>
+              <p>Local data workflows, reporting, systems integrations, and reusable automation for operational decision-making.</p>
+              <span class="focus-tech">SQLite &middot; Graph API &middot; Rewst &middot; NinjaOne</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Selected work</p>
+              <h2 id="projects-title">Products built around real constraints.</h2>
+            </div>
+            <p>From context-aware study tooling to local-first mobile architecture and privacy-minded browser software.</p>
+          </div>
+
+          <div class="project-filters" role="toolbar" aria-label="Filter projects">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-button" type="button" data-filter="ai" aria-pressed="false">Applied AI</button>
+            <button class="filter-button" type="button" data-filter="data" aria-pressed="false">Data &amp; Mobile</button>
+            <button class="filter-button" type="button" data-filter="software" aria-pressed="false">Software</button>
+            <button class="filter-button" type="button" data-filter="hardware" aria-pressed="false">Hardware</button>
+          </div>
+          <p class="sr-only" aria-live="polite" data-filter-status>Showing all 5 projects</p>
+
+          <div class="featured-projects">
+            <article class="project-card project-card-large reveal" data-category="ai software">
+              <div class="project-visual visual-micdrop" aria-hidden="true">
+                <div class="mock-window-bar"><span></span><span></span><span></span><b>MICDROP / STUDY SESSION</b></div>
+                <div class="waveform"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="study-output"><span>Structured notes</span><span>Quiz generated</span><span>Flashcards saved</span></div>
+              </div>
+              <div class="project-body">
+                <div class="project-meta"><span class="status status-building">In development</span><span>AI study application</span></div>
+                <h3>MicDrop</h3>
+                <p>A full-stack study application that transforms lecture audio and course materials into structured notes, quizzes, and flashcards through REST API integrations.</p>
+                <ul class="project-points">
+                  <li>Uses course context to improve AI-generated study content.</li>
+                  <li>Includes persistent storage, search, export, and content-management workflows.</li>
+                </ul>
+                <div class="tag-list" aria-label="MicDrop technologies"><span>Python</span><span>FastAPI</span><span>Flutter</span><span>Dart</span><span>OpenAI API</span><span>Hive</span></div>
+              </div>
+            </article>
+
+            <article class="project-card project-card-large reveal" data-category="data mobile">
+              <div class="project-visual visual-michatone" aria-hidden="true">
+                <div class="phone-shell">
+                  <div class="album-art"><span>MT</span></div>
+                  <div class="track-lines"><b></b><i></i></div>
+                  <div class="player-controls"><span>&#9664;</span><strong>&#9654;</strong><span>&#9654;</span></div>
+                </div>
+                <div class="local-badge">LOCAL DATA<br><strong>OFFLINE READY</strong></div>
+              </div>
+              <div class="project-body">
+                <div class="project-meta"><span class="status status-verified">55 tests passing</span><span>Offline-first mobile</span></div>
+                <h3>MichaTone</h3>
+                <p>An offline-first Android music application designed around durable local data, uninterrupted playback, and a complete library experience.</p>
+                <ul class="project-points">
+                  <li>Background playback, search, playlists, queue restoration, analytics, metadata, and local recommendations.</li>
+                  <li>Verified through static analysis plus successful debug and release builds.</li>
+                </ul>
+                <div class="tag-list" aria-label="MichaTone technologies"><span>Flutter</span><span>Dart</span><span>SQLite</span><span>Android</span></div>
+              </div>
+            </article>
+
+            <article class="project-card project-card-large reveal" data-category="ai software">
+              <div class="project-visual visual-shield" aria-hidden="true">
+                <div class="browser-shell">
+                  <div class="browser-top"><span></span><span></span><span></span><b>local://content-shield</b></div>
+                  <div class="shield-mark">S</div>
+                  <div class="shield-lines"><i></i><i></i><i></i></div>
+                  <div class="shield-toggle"><span>Local processing</span><b></b></div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-meta"><span class="status status-complete">Evaluated</span><span>Privacy-first extension</span></div>
+                <h3>AI Content Shield</h3>
+                <p>A configurable Chrome and Firefox extension with local-first content processing and blocking. Accounts, telemetry, and cloud inference are off by default.</p>
+                <ul class="project-points">
+                  <li>Evaluation and calibration tooling backed by 45 passing tests.</li>
+                  <li>Benchmarked 9,250 analyses at approximately 0.15 ms per analysis.</li>
+                </ul>
+                <div class="tag-list" aria-label="AI Content Shield technologies"><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Chrome APIs</span><span>Firefox APIs</span></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="additional-projects">
+            <article class="project-card project-card-small reveal" data-category="hardware software">
+              <div class="project-index" aria-hidden="true">04</div>
+              <div class="project-body">
+                <div class="project-meta"><span class="status status-complete">Team engineering</span><span>Autonomous systems</span></div>
+                <h3>Honda Launchpad</h3>
+                <p>Collaborated on an eight-person team to design and program an autonomous factory pallet mover prototype, integrating software and hardware through iterative testing toward a working demonstration.</p>
+              </div>
+            </article>
+            <article class="project-card project-card-small project-with-image reveal" data-category="hardware mobile data">
+              <img src="smart-leg-brace-team.jpg" width="1600" height="1200" loading="lazy" alt="Michael Frueh Jr. and teammates presenting the Smart Leg Brace project">
+              <div class="project-body">
+                <div class="project-meta"><span class="status status-complete">Completed</span><span>IoT prototype</span></div>
+                <h3>Smart Leg Brace</h3>
+                <p>A team-built physical therapy prototype pairing ESP32 motion sensing with a Flutter and Bluetooth Low Energy companion experience for gait data and feedback.</p>
+                <div class="tag-list" aria-label="Smart Leg Brace technologies"><span>ESP32</span><span>Flutter</span><span>BLE</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="container experience-layout">
+          <div class="section-heading experience-heading">
+            <div>
+              <p class="section-kicker">Relevant experience</p>
+              <h2 id="experience-title">Engineering in operational environments.</h2>
+            </div>
+            <p>Professional experience spanning data services, automation integrations, technical documentation, and frontline systems support.</p>
+          </div>
+
+          <div class="timeline">
+            <article class="experience-card experience-featured reveal">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="experience-topline">
+                <div><p class="company">Honda</p><h3>Data Services Student</h3></div>
+                <span class="status status-incoming">Incoming co-op</span>
+              </div>
+              <p class="experience-meta">Marysville, OH <span>&middot;</span> Jan. 25 - May 7, 2027</p>
+              <p>Selected to support data and IT initiatives through analysis, stakeholder requirements, project planning, standardized reporting, and process improvement.</p>
+            </article>
+
+            <article class="experience-card reveal">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="experience-topline"><div><p class="company">Perry proTECH</p><h3>DevOps Engineer Intern</h3></div></div>
+              <p class="experience-meta">Lima, OH <span>&middot;</span> Dec. 2025 - May 2026</p>
+              <ul>
+                <li>Engineered automation workflows integrating NinjaOne, ConnectWise, and Microsoft Graph API to retrieve device data, evaluate policy overrides, apply end-of-life policies, and generate operational reports.</li>
+                <li>Converted recurring support processes into modular, reusable workflow logic and validated behavior against live data.</li>
+                <li>Collaborated with engineers on requirements, troubleshooting, test records, and technical documentation.</li>
+              </ul>
+            </article>
+
+            <article class="experience-card reveal">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="experience-topline"><div><p class="company">The Ohio State University</p><h3>IT Help Desk Student Technician</h3></div><span class="status status-current">Current</span></div>
+              <p class="experience-meta">Columbus, OH <span>&middot;</span> Oct. 2025 - Present</p>
+              <ul>
+                <li>Troubleshoot hardware, software, account, and network incidents for the university community.</li>
+                <li>Document resolutions, identify recurring issues, and escalate complex problems with complete technical records.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Technical toolkit</p>
+              <h2 id="skills-title">A focused, practical stack.</h2>
+            </div>
+            <p>Tools I have used across coursework, personal products, IT operations, and professional automation work.</p>
+          </div>
+          <div class="skills-grid">
+            <article class="skill-group reveal">
+              <p class="skill-label">01 / Languages</p>
+              <h3>Languages</h3>
+              <div class="skill-items"><span>Java</span><span>Python</span><span>JavaScript</span><span>Dart</span><span>C++</span><span>HTML</span><span>CSS</span></div>
+            </article>
+            <article class="skill-group reveal">
+              <p class="skill-label">02 / Frameworks</p>
+              <h3>Frameworks, APIs &amp; Data</h3>
+              <div class="skill-items"><span>FastAPI</span><span>Flutter</span><span>SQLite</span><span>Hive</span><span>REST APIs</span><span>OpenAI API</span><span>Microsoft Graph API</span></div>
+            </article>
+            <article class="skill-group reveal">
+              <p class="skill-label">03 / Platforms</p>
+              <h3>Developer Tools</h3>
+              <div class="skill-items"><span>Git</span><span>GitHub</span><span>JUnit</span><span>VS Code</span><span>Eclipse</span><span>Rewst</span><span>NinjaOne</span><span>ConnectWise</span><span>Browser Extension APIs</span></div>
+            </article>
+            <article class="skill-group reveal">
+              <p class="skill-label">04 / Foundations</p>
+              <h3>Software Engineering</h3>
+              <div class="skill-items"><span>Object-oriented programming</span><span>Data structures</span><span>Algorithms</span><span>Debugging</span><span>API integration</span><span>SDLC</span><span>Agile</span><span>Unit testing</span><span>Software automation</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="education" aria-labelledby="education-title">
+        <div class="container education-grid">
+          <article class="education-card reveal">
+            <p class="section-kicker">Education</p>
+            <h2 id="education-title">The Ohio State University</h2>
+            <p class="education-location">Columbus, OH</p>
+            <h3>Bachelor of Science in Computer Science &amp; Engineering</h3>
+            <p>Artificial Intelligence specialization</p>
+            <div class="education-facts"><span><strong>2029</strong> Expected graduation</span><span><strong>3.2</strong> Cumulative GPA</span></div>
+            <div class="coursework"><strong>Relevant coursework</strong><span>Software Development &amp; Design</span><span>Data Structures &amp; Algorithms</span><span>Discrete Structures</span></div>
+          </article>
+
+          <div class="achievement-column">
+            <article class="achievement-card reveal">
+              <p class="section-kicker">Achievement</p>
+              <div class="achievement-stat"><strong>8</strong><span>winning teams<br>among 70</span></div>
+              <h3>AI Hackathon</h3>
+              <p>Collaborated to develop and present a working AI solution under tight time constraints.</p>
+            </article>
+            <article class="involvement-card reveal">
+              <p class="section-kicker">Technical &amp; campus involvement</p>
+              <div class="involvement-list"><span>ColorStack</span><span>AI Club</span><span>OSU Dev</span><span>Big Data Analytics Association</span><span>Disciples On Campus</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="container contact-panel">
+          <div>
+            <p class="section-kicker">Summer 2027</p>
+            <h2 id="contact-title">Let&rsquo;s build something useful.</h2>
+            <p>I am seeking a Summer 2027 Software Engineering, AI Engineering, Data Analyst, or data-focused engineering internship where I can contribute, learn quickly, and ship thoughtful work.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button button-primary" href="mailto:michaelfrueh5589@gmail.com">Email Michael <span aria-hidden="true">&nearr;</span></a>
+            <a class="button button-secondary" href="resume.html">View resume</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-layout">
+        <div><a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">MF</span><span class="brand-name">Michael Frueh Jr.</span></a><p>Software Engineering &middot; Applied AI &middot; Data &amp; Automation</p></div>
+        <div class="footer-links"><a href="mailto:michaelfrueh5589@gmail.com">Email</a><a href="https://github.com/michael0135" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/michael-frueh-jr-342995335" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="Michael_Frueh_Jr_ResumeG.pdf" download>Resume</a></div>
+        <p class="copyright">&copy; <span data-year>2026</span> Michael Frueh Jr.</p>
+      </div>
+    </footer>
+  </body>
+</html>
